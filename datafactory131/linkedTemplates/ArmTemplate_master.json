@@ -1,0 +1,119 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "datafactory131"
+		},
+		"bronzeDB_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'bronzeDB'"
+		},
+		"silverDB_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'silverDB'"
+		},
+		"transformdataDB_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'transformdataDB'"
+		},
+		"AthletesHttp_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com/GauravSagar77/Cloud-project/main/Azure%20end%20to%20end%20project/Data%20source/Athletes.csv"
+		},
+		"CoachesHttp_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com/GauravSagar77/Cloud-project/main/Azure%20end%20to%20end%20project/Data%20source/Coaches.csv"
+		},
+		"bronzeDB_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://storagepro.dfs.core.windows.net/"
+		},
+		"gendersHttp_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com/GauravSagar77/Cloud-project/main/Azure%20end%20to%20end%20project/Data%20source/EntriesGender.csv"
+		},
+		"medalsHttp_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com/GauravSagar77/Cloud-project/main/Azure%20end%20to%20end%20project/Data%20source/Medals.csv"
+		},
+		"silverDB_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://storagepro.dfs.core.windows.net/"
+		},
+		"teamsHttpServer1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com/GauravSagar77/Cloud-project/main/Azure%20end%20to%20end%20project/Data%20source/Teams.csv"
+		},
+		"transformdataDB_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://storagepro.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "datafactory131_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"bronzeDB_accountKey": {
+						"value": "[parameters('bronzeDB_accountKey')]"
+					},
+					"silverDB_accountKey": {
+						"value": "[parameters('silverDB_accountKey')]"
+					},
+					"transformdataDB_accountKey": {
+						"value": "[parameters('transformdataDB_accountKey')]"
+					},
+					"AthletesHttp_properties_typeProperties_url": {
+						"value": "[parameters('AthletesHttp_properties_typeProperties_url')]"
+					},
+					"CoachesHttp_properties_typeProperties_url": {
+						"value": "[parameters('CoachesHttp_properties_typeProperties_url')]"
+					},
+					"bronzeDB_properties_typeProperties_url": {
+						"value": "[parameters('bronzeDB_properties_typeProperties_url')]"
+					},
+					"gendersHttp_properties_typeProperties_url": {
+						"value": "[parameters('gendersHttp_properties_typeProperties_url')]"
+					},
+					"medalsHttp_properties_typeProperties_url": {
+						"value": "[parameters('medalsHttp_properties_typeProperties_url')]"
+					},
+					"silverDB_properties_typeProperties_url": {
+						"value": "[parameters('silverDB_properties_typeProperties_url')]"
+					},
+					"teamsHttpServer1_properties_typeProperties_url": {
+						"value": "[parameters('teamsHttpServer1_properties_typeProperties_url')]"
+					},
+					"transformdataDB_properties_typeProperties_url": {
+						"value": "[parameters('transformdataDB_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
