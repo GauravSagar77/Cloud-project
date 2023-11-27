@@ -1,0 +1,12 @@
+{
+	"name": "teamsHttpServer1",
+	"properties": {
+		"annotations": [],
+		"type": "HttpServer",
+		"typeProperties": {
+			"url": "https://raw.githubusercontent.com/GauravSagar77/Cloud-project/main/Azure%20end%20to%20end%20project/Data%20source/Teams.csv",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
