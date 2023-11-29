@@ -1,0 +1,22 @@
+{
+	"name": "tokyoDB",
+	"properties": {
+		"Name": "tokyoDB",
+		"EntityType": "DATABASE",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"Properties": {
+			"IsSyMSCDMDatabase": true
+		},
+		"Source": {
+			"Provider": "ADLS",
+			"Location": "abfss://dev@storagepro.dfs.core.windows.net/tokyoDB",
+			"Properties": {
+				"FormatType": "csv",
+				"LinkedServiceName": "azuresynapse131-WorkspaceDefaultStorage"
+			}
+		}
+	},
+	"type": "DATABASE"
+}
