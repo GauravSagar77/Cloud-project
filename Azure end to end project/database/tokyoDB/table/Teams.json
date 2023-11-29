@@ -1,7 +1,7 @@
 {
-	"name": "Athletes",
+	"name": "Teams",
 	"properties": {
-		"Name": "Athletes",
+		"Name": "Teams",
 		"EntityType": "TABLE",
 		"Namespace": {
 			"DatabaseName": "tokyoDB"
@@ -14,7 +14,20 @@
 		"StorageDescriptor": {
 			"Columns": [
 				{
-					"Name": "PersonName",
+					"Name": "TeamName",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8000,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "Discipline",
 					"OriginDataTypeName": {
 						"TypeName": "string",
 						"IsComplexType": false,
@@ -40,7 +53,7 @@
 					"DeltaFormatInvalidMessages": []
 				},
 				{
-					"Name": "Discipline",
+					"Name": "Event",
 					"OriginDataTypeName": {
 						"TypeName": "string",
 						"IsComplexType": false,
@@ -59,7 +72,7 @@
 				"FormatType": "csv",
 				"SerializeLib": "org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe",
 				"Properties": {
-					"path": "abfss://silver@storagepro.dfs.core.windows.net/Athletes/part-00000-tid-3170714081930261046-7912b427-3ab2-4800-8971-2b5297140dd0-94-1-c000.csv",
+					"path": "abfss://silver@storagepro.dfs.core.windows.net/Teams/part-00000-tid-694354266079292681-160f2b18-9d3a-4831-b84c-f748923092ce-102-1-c000.csv",
 					"delimiter": ",",
 					"multiLine": "false",
 					"firstRowAsHeader": "true",
@@ -70,7 +83,7 @@
 			},
 			"Source": {
 				"Provider": "ADLS",
-				"Location": "abfss://silver@storagepro.dfs.core.windows.net/Athletes/part-00000-tid-3170714081930261046-7912b427-3ab2-4800-8971-2b5297140dd0-94-1-c000.csv",
+				"Location": "abfss://silver@storagepro.dfs.core.windows.net/Teams/part-00000-tid-694354266079292681-160f2b18-9d3a-4831-b84c-f748923092ce-102-1-c000.csv",
 				"Properties": {
 					"LinkedServiceName": "azuresynapse131-WorkspaceDefaultStorage",
 					"LocationSetToDatabaseDefault": false
@@ -78,7 +91,7 @@
 			},
 			"Properties": {
 				"textinputformat.record.delimiter": ",",
-				"compression": "{\"type\":\"None\",\"level\":\"optimal\"}",
+				"compression": "",
 				"derivedModelAttributeInfo": "{\"attributeReferences\":{}}"
 			},
 			"Compressed": false,

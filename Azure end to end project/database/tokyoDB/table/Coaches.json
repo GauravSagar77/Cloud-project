@@ -1,7 +1,7 @@
 {
-	"name": "Athletes",
+	"name": "Coaches",
 	"properties": {
-		"Name": "Athletes",
+		"Name": "Coaches",
 		"EntityType": "TABLE",
 		"Namespace": {
 			"DatabaseName": "tokyoDB"
@@ -14,7 +14,7 @@
 		"StorageDescriptor": {
 			"Columns": [
 				{
-					"Name": "PersonName",
+					"Name": "Name",
 					"OriginDataTypeName": {
 						"TypeName": "string",
 						"IsComplexType": false,
@@ -51,6 +51,19 @@
 						}
 					},
 					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "Event",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8000,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					},
+					"DeltaFormatInvalidMessages": []
 				}
 			],
 			"Format": {
@@ -59,7 +72,7 @@
 				"FormatType": "csv",
 				"SerializeLib": "org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe",
 				"Properties": {
-					"path": "abfss://silver@storagepro.dfs.core.windows.net/Athletes/part-00000-tid-3170714081930261046-7912b427-3ab2-4800-8971-2b5297140dd0-94-1-c000.csv",
+					"path": "abfss://silver@storagepro.dfs.core.windows.net/Coaches/part-00000-tid-2297007025714121532-2b49796c-4f56-418c-bd4d-871d412ad232-98-1-c000.csv",
 					"delimiter": ",",
 					"multiLine": "false",
 					"firstRowAsHeader": "true",
@@ -70,7 +83,7 @@
 			},
 			"Source": {
 				"Provider": "ADLS",
-				"Location": "abfss://silver@storagepro.dfs.core.windows.net/Athletes/part-00000-tid-3170714081930261046-7912b427-3ab2-4800-8971-2b5297140dd0-94-1-c000.csv",
+				"Location": "abfss://silver@storagepro.dfs.core.windows.net/Coaches/part-00000-tid-2297007025714121532-2b49796c-4f56-418c-bd4d-871d412ad232-98-1-c000.csv",
 				"Properties": {
 					"LinkedServiceName": "azuresynapse131-WorkspaceDefaultStorage",
 					"LocationSetToDatabaseDefault": false
@@ -78,7 +91,7 @@
 			},
 			"Properties": {
 				"textinputformat.record.delimiter": ",",
-				"compression": "{\"type\":\"None\",\"level\":\"optimal\"}",
+				"compression": "",
 				"derivedModelAttributeInfo": "{\"attributeReferences\":{}}"
 			},
 			"Compressed": false,
