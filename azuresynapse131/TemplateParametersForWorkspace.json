@@ -1,0 +1,48 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"workspaceName": {
+			"value": "azuresynapse131"
+		},
+		"azuresynapse131-WorkspaceDefaultSqlServer_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:azuresynapse131.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
+		},
+		"bronzeDB_accountKey": {
+			"value": ""
+		},
+		"silverDB_accountKey": {
+			"value": ""
+		},
+		"transformdataDB_accountKey": {
+			"value": ""
+		},
+		"AthletesHttp_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/GauravSagar77/Cloud-project/main/Azure%20end%20to%20end%20project/Data%20source/Athletes.csv"
+		},
+		"CoachesHttp_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/GauravSagar77/Cloud-project/main/Azure%20end%20to%20end%20project/Data%20source/Coaches.csv"
+		},
+		"azuresynapse131-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"value": "https://storagepro.dfs.core.windows.net"
+		},
+		"bronzeDB_properties_typeProperties_url": {
+			"value": "https://storagepro.dfs.core.windows.net/"
+		},
+		"gendersHttp_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/GauravSagar77/Cloud-project/main/Azure%20end%20to%20end%20project/Data%20source/EntriesGender.csv"
+		},
+		"medalsHttp_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/GauravSagar77/Cloud-project/main/Azure%20end%20to%20end%20project/Data%20source/Medals.csv"
+		},
+		"silverDB_properties_typeProperties_url": {
+			"value": "https://storagepro.dfs.core.windows.net/"
+		},
+		"teamsHttpServer1_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/GauravSagar77/Cloud-project/main/Azure%20end%20to%20end%20project/Data%20source/Teams.csv"
+		},
+		"transformdataDB_properties_typeProperties_url": {
+			"value": "https://storagepro.dfs.core.windows.net/"
+		}
+	}
+}
